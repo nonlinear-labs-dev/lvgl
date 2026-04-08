@@ -234,8 +234,8 @@ typedef enum {
 
 #define LV_COLOR_MAKE(r8, g8, b8) {b8, g8, r8}
 
-#define LV_OPA_MIX2(a1, a2) ((lv_opa_t)(((int32_t)(a1) * (a2)) >> 8))
-#define LV_OPA_MIX3(a1, a2, a3) ((lv_opa_t)(((int32_t)(a1) * (a2) * (a3)) >> 16))
+#define LV_OPA_MIX2(a1, a2) ((lv_opa_t)((((uint32_t)(a1) * (a2)) + 128) / 255))
+#define LV_OPA_MIX3(a1, a2, a3) ((lv_opa_t)((uint32_t)(a1) * (a2) * (a3) / 65025))
 
 /**********************
  * GLOBAL PROTOTYPES
